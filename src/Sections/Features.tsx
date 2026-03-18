@@ -1,3 +1,8 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type CardProps = {
   title: string;
@@ -8,20 +13,21 @@ type CardProps = {
 const Card = ({ title, image, className }: CardProps) => {
   return (
     <div
-    id="features"
-      className={`group relative overflow-hidden ${className} cursor-pointer`}
+      className={`feature-card group relative overflow-hidden ${className} cursor-pointer`}
     >
       {/* IMAGE */}
-      <img
-        src={image}
-        alt={title}
-        className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-      />
+      <div className="feature-img-wrapper w-full h-full">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover scale-110 transition duration-500 group-hover:scale-115"
+        />
+      </div>
 
-      {/* DARK OVERLAY (SUBTLE) */}
+      {/* OVERLAY */}
       <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition duration-500" />
 
-      {/* CATEGORY TAG */}
+      {/* TAG */}
       <p className="absolute top-4 left-4 text-[10px] tracking-[0.3em] text-white">
         {title}
       </p>
@@ -38,8 +44,52 @@ const Card = ({ title, image, className }: CardProps) => {
 };
 
 const Featured = () => {
+
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const q = gsap.utils.selector(sectionRef);
+      const cards = q(".feature-card");
+      const images = q(".feature-img");
+
+      gsap.from(cards, {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 90%",
+        },
+      });
+
+      images.forEach((img, i) => {
+        gsap.to(img, {
+          y: i % 2 === 0 ? 20 : -20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: img,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      });
+
+      ScrollTrigger.refresh();
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+
   return (
-    <section className="bg-background py-25 px-6 md:px-16">
+    <section
+    id="portfolio"
+      ref={sectionRef}
+      className="bg-background py-25 px-6 md:px-16 overflow-hidden">
 
       {/* HEADER */}
       <div className="flex justify-between items-end mb-16">

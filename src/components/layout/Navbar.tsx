@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const links = [
   { name: "Portfolio", id: "portfolio" },
-  { name: "Features", id: "features" },
   { name: "Services", id: "services" },
   { name: "About", id: "about" },
   { name: "Stories", id: "stories" },
@@ -59,7 +58,7 @@ const Navbar = () => {
         className={`text-lg tracking-wide font-medium transition-colors duration-300
         ${scrolled ? "text-black" : "text-gold"}`}
       >
-        Swayam More
+        <a href="#">Swayam More</a>
       </h1>
 
       {/* NAV LINKS */}
