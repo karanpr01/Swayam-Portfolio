@@ -1,9 +1,103 @@
 
+type CardProps = {
+  title: string;
+  image: string;
+  className: string;
+};
 
-const Features = () => {
+const Card = ({ title, image, className }: CardProps) => {
   return (
-    <div>Features</div>
-  )
-}
+    <div
+    id="features"
+      className={`group relative overflow-hidden ${className} cursor-pointer`}
+    >
+      {/* IMAGE */}
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+      />
 
-export default Features
+      {/* DARK OVERLAY (SUBTLE) */}
+      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition duration-500" />
+
+      {/* CATEGORY TAG */}
+      <p className="absolute top-4 left-4 text-[10px] tracking-[0.3em] text-white">
+        {title}
+      </p>
+
+      {/* HOVER TEXT */}
+      <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition duration-500">
+        <p className="heading text-white text-xl italic">{title}</p>
+      </div>
+
+      {/* GOLD LINE */}
+      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gold translate-y-full group-hover:translate-y-0 transition-all duration-500" />
+    </div>
+  );
+};
+
+const Featured = () => {
+  return (
+    <section className="bg-background py-25 px-6 md:px-16">
+
+      {/* HEADER */}
+      <div className="flex justify-between items-end mb-16">
+        <div>
+          <p className="label mb-4">SELECTED WORK</p>
+          <h2 className="heading text-[40px] md:text-[56px]  text-black">
+            Captured <span className="italic text-muted">Moments</span>
+          </h2>
+        </div>
+
+        <a href="#" className="text-sm tracking-wide transition">
+          View All Work →
+        </a>
+      </div>
+
+      {/* GRID */}
+      <div className="grid grid-cols-12 gap-4">
+
+        {/* BIG CARD */}
+        <Card
+          title="WEDDINGS"
+          className="col-span-12 md:col-span-5 h-95"
+          image="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop"
+        />
+
+        {/* RIGHT GRID */}
+        <div className="col-span-12 md:col-span-7 grid grid-cols-6 gap-4">
+
+          <Card
+            title="PRE-WEDDING"
+            className="col-span-6 md:col-span-3 h-45"
+            image="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop"
+          />
+
+          <Card
+            title="FASHION"
+            className="col-span-6 md:col-span-3 h-45"
+            image="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+
+          <Card
+            title="PORTRAITS"
+            className="col-span-6 md:col-span-3 h-45"
+            image="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200&auto=format&fit=crop"
+          />
+
+          <Card
+            title="EVENTS"
+            className="col-span-6 md:col-span-3 h-45"
+            image="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1200&auto=format&fit=crop"
+          />
+
+        </div>
+
+      </div>
+
+    </section>
+  );
+};
+
+export default Featured;
