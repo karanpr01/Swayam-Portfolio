@@ -1,8 +1,13 @@
+import Navbar from "./components/layout/Navbar"
+import Hero from "./Sections/Hero"
 
 
 const App = () => {
   return (
-    <div className="text-4xl text-red-500">Tailwind Working</div>
+    <div>
+      <Navbar/>
+      <Hero/>
+    </div>
   )
 }
 

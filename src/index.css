@@ -1,15 +1,59 @@
 @import "tailwindcss";
 
-body {
-  font-family: 'Outfit', sans-serif;
+/* =========================
+   DESIGN TOKENS
+========================= */
+:root {
+  /* COLORS */
+  --background: #F5F2EE;
+  --black: #0A0A0A;
+  --dark-gray: #1C1C1C;
+  --beige: #E8E0D4;
+  --warm-gray: #9E9589;
+  --gold: #C9A96E;
+  --muted: #6B6560;
+  --whatsapp: #25D366;
+
+  /* TYPOGRAPHY */
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Outfit', sans-serif;
 }
 
+
+/* =========================
+   COLOR UTILITIES
+========================= */
+.text-gold { color: var(--gold); }
+.text-muted { color: var(--muted); }
+
+.bg-background { background-color: var(--background); }
+.bg-black-custom { background-color: var(--black); }
+.bg-dark { background-color: var(--dark-gray); }
+.bg-beige { background-color: var(--beige); }
+.bg-gold { background-color: var(--gold); }
+
+.border-gold { border-color: var(--gold); }
+
+/* =========================
+   TYPOGRAPHY
+========================= */
 .heading {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-heading);
+}
+
+.body-font {
+  font-family: var(--font-body);
 }
 
 .label {
+  font-size: 10px;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  font-size: 10px;
+  color: var(--gold);
+}
+
+body {
+  background-color: var(--background);
+  font-family: var(--font-body);
+  color: var(--muted);
 }
