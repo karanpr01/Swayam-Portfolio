@@ -37,6 +37,10 @@
 /* =========================
    TYPOGRAPHY
 ========================= */
+html {
+  scroll-behavior: smooth;
+}
+
 .heading {
   font-family: var(--font-heading);
 }
