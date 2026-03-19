@@ -7,16 +7,19 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     title: "Landing Pages",
+    price: "₹8,000",
     description:
       "High-converting landing pages designed to turn visitors into paying clients.",
   },
   {
     title: "Portfolio Websites",
+    price: "₹12,000",
     description:
       "Modern portfolio websites that build authority and attract opportunities.",
   },
   {
     title: "Business Websites",
+    price: "₹20,000",
     description:
       "Professional websites for brands that want to stand out and scale online.",
   },
@@ -109,12 +112,16 @@ const Services = () => {
             <p className="text-white/60 leading-relaxed">
               {service.description}
             </p>
+            {/* Price */}
+            <p className="text-2xl mb-4 text-gold">Starting from {service.price}</p>
 
             {/* HOVER LINE */}
-            <div className="mt-8 h-[1px] w-0 bg-gold transition-all duration-300 group-hover:w-full" />
+            <div className="mt-8 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
           </div>
         ))}
       </div>
+
+      
     </section>
   );
 };
