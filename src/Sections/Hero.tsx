@@ -6,20 +6,20 @@ const Hero = () => {
   const heroRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-  const ctx = gsap.context((self) => {
-     if (!self.selector) return;
-     
-    gsap.from(self.selector(".hero-text"), {
-      y: 40,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out",
-    });
-  }, heroRef);
+    const ctx = gsap.context((self) => {
+      if (!self.selector) return;
 
-  return () => ctx.revert();
-}, []);
+      gsap.from(self.selector(".hero-text"), {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+      });
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
@@ -50,12 +50,21 @@ const Hero = () => {
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-4 mt-10 hero-text">
-          <button className="bg-gold text-white px-8 py-4 text-sm tracking-wide transition hover:opacity-90">
-            VIEW PORTFOLIO
+          <button
+            className="bg-gold text-white px-8 py-4 text-sm tracking-wide transition hover:opacity-90">
+            <a
+              href="#portfolio"
+            >
+              VIEW PORTFOLIO
+            </a>
           </button>
 
           <button className="border border-white/30 px-8 py-4 text-sm tracking-wide hover:border-gold hover:text-gold transition">
-            BOOK A SHOOT
+             <a
+          href="#contact"
+        >
+          BOOK A SHOOT
+        </a>
           </button>
         </div>
 

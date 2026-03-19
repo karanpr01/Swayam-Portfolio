@@ -4,7 +4,6 @@ const links = [
   { name: "Portfolio", id: "portfolio" },
   { name: "Services", id: "services" },
   { name: "About", id: "about" },
-  { name: "Stories", id: "stories" },
   { name: "Contact", id: "contact" },
 ];
 
@@ -47,11 +46,10 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full h-20 flex items-center justify-between px-6 md:px-12 z-50 transition-all duration-300
-      ${
-        scrolled
+      ${scrolled
           ? "bg-white/90 backdrop-blur-md border-b border-black/10"
           : "bg-transparent"
-      }`}
+        }`}
     >
       {/* LOGO */}
       <h1
@@ -68,24 +66,22 @@ const Navbar = () => {
             key={link.id}
             href={`#${link.id}`}
             className={`group relative text-sm tracking-wide transition-colors duration-300
-            ${
-              active === link.id
+            ${active === link.id
                 ? "text-gold"
                 : scrolled
-                ? "text-black hover:text-gold"
-                : "text-white hover:text-gold"
-            }`}
+                  ? "text-black hover:text-gold"
+                  : "text-white hover:text-gold"
+              }`}
           >
             {link.name}
 
             {/* UNDERLINE */}
             <span
               className={`absolute left-0 -bottom-1 h-px bg-gold transition-all duration-300
-              ${
-                active === link.id
+              ${active === link.id
                   ? "w-full"
                   : "w-0 group-hover:w-full"
-              }`}
+                }`}
             />
           </a>
         ))}
@@ -94,13 +90,16 @@ const Navbar = () => {
       {/* CTA BUTTON */}
       <button
         className={`px-6 py-3 text-sm tracking-wide transition-all duration-300
-        ${
-          scrolled
+        ${scrolled
             ? "bg-black text-white"
             : "bg-white text-black"
-        }`}
+          }`}
       >
-        BOOK A SHOOT
+        <a
+          href="#contact"
+        >
+          BOOK A SHOOT
+        </a>
       </button>
     </nav>
   );

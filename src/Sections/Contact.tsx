@@ -78,7 +78,7 @@ const Contact = () => {
 
           {/* WHATSAPP */}
           <a
-            href="https://wa.me/919137072027?text=Hi%20I%20came%20from%20your%20website%20and%20want%20to%20discuss%20a%20project"
+            href="https://wa.me/919987826481?text=Hi%20I%20came%20from%20your%20website%20and%20want%20to%20discuss%20a%20project"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#25D366] text-black px-8 py-4 text-sm tracking-wide hover:opacity-90 transition contact-item"
