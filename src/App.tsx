@@ -6,6 +6,7 @@ import CTA from "./Sections/CTA"
 import Features from "./Sections/Features"
 import Hero from "./Sections/Hero"
 import Services from "./Sections/Services"
+import Testimonials from "./Sections/Testimonials"
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
       <Services/>
       <About/>
       <CTA/>
+      <Testimonials/>
       <Contact/>
       <Footer/>
     </div>
