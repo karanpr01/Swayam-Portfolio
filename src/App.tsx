@@ -1,4 +1,5 @@
 import Navbar from "./components/layout/Navbar"
+import About from "./Sections/About"
 import Contact from "./Sections/Contact"
 import CTA from "./Sections/CTA"
 import Features from "./Sections/Features"
@@ -13,6 +14,7 @@ const App = () => {
       <Hero/>
       <Features/>
       <Services/>
+      <About/>
       <CTA/>
       <Contact/>
     </div>
