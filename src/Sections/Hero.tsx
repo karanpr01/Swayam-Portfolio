@@ -3,21 +3,23 @@ import { useEffect, useRef } from "react";
 
 const Hero = () => {
 
-  const heroRef = useRef(null)
+  const heroRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(heroRef.current.querySelectorAll(".hero-text"),{
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power3.out"
-      })
-    }, heroRef)
+  const ctx = gsap.context((self) => {
+     if (!self.selector) return;
+     
+    gsap.from(self.selector(".hero-text"), {
+      y: 40,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out",
+    });
+  }, heroRef);
 
-    return () => ctx.revert()
-  }, [])
+  return () => ctx.revert();
+}, []);
 
   return (
     <section
