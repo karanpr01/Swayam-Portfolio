@@ -1,3 +1,4 @@
+import Footer from "./components/layout/Footer"
 import Navbar from "./components/layout/Navbar"
 import About from "./Sections/About"
 import Contact from "./Sections/Contact"
@@ -17,6 +18,7 @@ const App = () => {
       <About/>
       <CTA/>
       <Contact/>
+      <Footer/>
     </div>
   )
 }

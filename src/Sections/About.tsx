@@ -43,7 +43,7 @@ const About = () => {
       <div className="grid md:grid-cols-2 gap-16 items-center">
 
         {/* IMAGE */}
-        <div className="about-item relative w-full h-[400px] md:h-[500px] overflow-hidden">
+        <div className="about-item relative w-full h-100 md:h-125 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=1200"
             alt="Photographer"
