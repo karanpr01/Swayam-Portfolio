@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
 
@@ -52,11 +53,11 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 mt-10 hero-text">
           <button
             className="bg-gold text-white px-8 py-4 text-sm tracking-wide transition hover:opacity-90">
-            <a
-              href="#portfolio"
+            <Link
+              to="/portfolio"
             >
               VIEW PORTFOLIO
-            </a>
+            </Link>
           </button>
 
           <button className="border border-white/30 px-8 py-4 text-sm tracking-wide hover:border-gold hover:text-gold transition">

@@ -1,4 +1,5 @@
 import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
 
@@ -60,10 +61,10 @@ const Footer = () => {
         <div>
           <p className="mb-4 text-sm text-white/40">EXPLORE</p>
           <ul className="space-y-2 text-sm">
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><Link to="/portfolio">Portfolio</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
 

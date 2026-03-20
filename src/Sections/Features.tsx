@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,7 +88,6 @@ const Featured = () => {
 
   return (
     <section
-    id="portfolio"
       ref={sectionRef}
       className="bg-background py-25 px-6 md:px-16 overflow-hidden">
 
@@ -100,9 +100,9 @@ const Featured = () => {
           </h2>
         </div>
 
-        <a href="#" className="text-sm tracking-wide transition">
+        <Link to="/portfolio" className="text-sm tracking-wide transition">
           View All Work →
-        </a>
+        </Link>
       </div>
 
       {/* GRID */}
