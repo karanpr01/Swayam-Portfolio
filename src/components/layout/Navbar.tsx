@@ -103,7 +103,7 @@ const Navbar = () => {
       {/* CTA */}
       <button
         onClick={() => handleScrollTo("contact")}
-        className={`px-6 py-3 text-sm tracking-wide transition-all duration-300
+        className={`px-6 py-3 text-sm tracking-wide transition-all duration-300 hover:bg-(--gold)
         ${scrolled ? "bg-black text-white" : "bg-white text-black"}`}
       >
         BOOK A SHOOT
