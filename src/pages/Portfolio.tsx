@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
+import { HashLink } from "react-router-hash-link"
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -154,7 +155,7 @@ const Portfolio = () => {
                             </p>
 
                             <button className="border border-(--gold) text-(--gold) font-['Outfit'] font-light text-[11px] tracking-[0.15em] px-8 py-3 hover:bg-(--gold) hover:text-white transition-colors">
-                                EXPLORE GALLERY →
+                                <HashLink smooth to="#gallery">EXPLORE GALLERY →</HashLink>
                             </button>
                         </div>
 
@@ -212,7 +213,7 @@ const Portfolio = () => {
             </div>
 
             {/* GALLERY */}
-            <div className="columns-1 md:columns-3 gap-4 space-y-4 px-6 md:px-16 py-20">
+            <div id="gallery" className="columns-1 md:columns-3 gap-4 space-y-4 px-6 md:px-16 py-20">
 
                 {filteredGallery.map((item) => (
                     <div

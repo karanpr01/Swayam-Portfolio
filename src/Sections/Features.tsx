@@ -88,6 +88,7 @@ const Featured = () => {
 
   return (
     <section
+      id="portfolio"
       ref={sectionRef}
       className="bg-background py-25 px-6 md:px-16 overflow-hidden">
 
@@ -100,7 +101,7 @@ const Featured = () => {
           </h2>
         </div>
 
-        <Link to="/portfolio" className="text-sm tracking-wide transition">
+        <Link to="/portfolio" className="text-sm tracking-wide transition hover:text-(--gold) hover:underline">
           View All Work →
         </Link>
       </div>
