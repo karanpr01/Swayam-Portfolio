@@ -4,21 +4,36 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const pricing = [
+const pricing =[
   {
-    title: "Landing Page",
-    price: "₹8,000+",
-    desc: "Perfect for businesses that want a single high-converting page.",
+    title: "Wedding Photography",
+    price: "Starting ₹45,000",
+    desc: "Full-day coverage capturing every emotion, ritual, and moment that matters.",
+    img: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200",
   },
   {
-    title: "Portfolio Website",
-    price: "₹12,000+",
-    desc: "Showcase your work professionally and attract opportunities.",
+    title: "Pre-Wedding Shoots",
+    price: "Starting ₹18,000",
+    desc: "Romantic storytelling sessions in beautiful locations, crafted with intention.",
+    img: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200",
   },
   {
-    title: "Business Website",
-    price: "₹20,000+",
-    desc: "Complete multi-page website built to scale your brand.",
+    title: "Portrait Sessions",
+    price: "Starting ₹8,000",
+    desc: "Personal, artistic portraits that reflect your identity and presence.",
+    img: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200",
+  },
+  {
+    title: "Fashion & Editorial",
+    price: "Starting ₹25,000",
+    desc: "High-concept shoots designed for brands, campaigns, and creative direction.",
+    img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200",
+  },
+  {
+    title: "Events & Occasions",
+    price: "Starting ₹12,000",
+    desc: "Coverage for celebrations, corporate events, and special gatherings.",
+    img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1200",
   },
 ];
 

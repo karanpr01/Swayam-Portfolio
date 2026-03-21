@@ -6,22 +6,34 @@ gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    title: "Landing Pages",
-    price: "₹8,000",
-    description:
-      "High-converting landing pages designed to turn visitors into paying clients.",
+    title: "Wedding Photography",
+    price: "Starting ₹45,000",
+    desc: "Full-day coverage capturing every emotion, ritual, and moment that matters.",
+    img: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200",
   },
   {
-    title: "Portfolio Websites",
-    price: "₹12,000",
-    description:
-      "Modern portfolio websites that build authority and attract opportunities.",
+    title: "Pre-Wedding Shoots",
+    price: "Starting ₹18,000",
+    desc: "Romantic storytelling sessions in beautiful locations, crafted with intention.",
+    img: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200",
   },
   {
-    title: "Business Websites",
-    price: "₹20,000",
-    description:
-      "Professional websites for brands that want to stand out and scale online.",
+    title: "Portrait Sessions",
+    price: "Starting ₹8,000",
+    desc: "Personal, artistic portraits that reflect your identity and presence.",
+    img: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200",
+  },
+  {
+    title: "Fashion & Editorial",
+    price: "Starting ₹25,000",
+    desc: "High-concept shoots designed for brands, campaigns, and creative direction.",
+    img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200",
+  },
+  {
+    title: "Events & Occasions",
+    price: "Starting ₹12,000",
+    desc: "Coverage for celebrations, corporate events, and special gatherings.",
+    img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1200",
   },
 ];
 
@@ -110,10 +122,10 @@ const Services = () => {
 
             {/* DESCRIPTION */}
             <p className="text-white/60 leading-relaxed">
-              {service.description}
+              {service.desc}
             </p>
             {/* Price */}
-            <p className="text-2xl mb-4 text-gold">Starting from {service.price}</p>
+            <p className="text-sm mb-4 text-gold">Starting from {service.price}</p>
 
             {/* HOVER LINE */}
             <div className="mt-8 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
