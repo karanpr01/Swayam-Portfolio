@@ -130,13 +130,14 @@ const Contact = () => {
               />
 
               <select
-                name="service"
+                name="Event Type"
                 className="bg-white/5 border border-white/10 px-4 py-3 outline-none"
               >
-                <option className="text-black">Service</option>
-                <option className="text-black">Landing Page</option>
-                <option className="text-black">Portfolio Website</option>
-                <option className="text-black">Business Website</option>
+                <option value="">Event Type</option>
+              <option className="text-black">Wedding</option>
+              <option className="text-black">Pre-Wedding</option>
+              <option className="text-black">Portrait</option>
+              <option className="text-black">Fashion</option>
               </select>
             </div>
 
