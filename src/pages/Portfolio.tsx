@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import { HashLink } from "react-router-hash-link"
+
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -77,13 +77,17 @@ const Portfolio = () => {
     // GSAP ANIMATION ON FILTER CHANGE
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.from(".gallery-item", {
-                opacity: 0,
-                y: 40,
-                duration: 0.6,
-                stagger: 0.08,
-                ease: "power3.out",
-            });
+            gsap.fromTo(
+                ".gallery-item",
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    stagger: 0.08,
+                    ease: "power3.out",
+                }
+            );
         }, sectionRef);
 
         return () => ctx.revert();
@@ -154,8 +158,15 @@ const Portfolio = () => {
                                 Mumbai · December 2024 · 15 Photos
                             </p>
 
-                            <button className="border border-(--gold) text-(--gold) font-['Outfit'] font-light text-[11px] tracking-[0.15em] px-8 py-3 hover:bg-(--gold) hover:text-white transition-colors">
-                                <HashLink smooth to="#gallery">EXPLORE GALLERY →</HashLink>
+                            <button
+                                className="border border-(--gold) text-(--gold) font-['Outfit'] font-light text-[11px] tracking-[0.15em] px-8 py-3 hover:bg-(--gold) hover:text-white transition-colors"
+                                onClick={() => {
+                                    document.getElementById("gallery")?.scrollIntoView({
+                                        behavior: "smooth",
+                                    });
+                                }}
+                            >
+                                EXPLORE GALLERY →
                             </button>
                         </div>
 
@@ -196,7 +207,7 @@ const Portfolio = () => {
             </section>
 
             {/* FILTER BAR */}
-            <div className="sticky top-20 bg-[#F5F2EE] border-b py-6 flex justify-center gap-3 flex-wrap z-40">
+            <div className="relative bg-[#F5F2EE] border-b py-6 flex justify-center gap-3 flex-wrap z-40">
                 {filters.map((filter) => (
                     <button
                         key={filter}
@@ -213,12 +224,15 @@ const Portfolio = () => {
             </div>
 
             {/* GALLERY */}
-            <div id="gallery" className="columns-1 md:columns-3 gap-4 space-y-4 px-6 md:px-16 py-20">
+            <div
+                id="gallery"
+                className="grid grid-cols-1 md:columns-3 gap-4 px-6 md:px-16 py-20"
+            >
 
                 {filteredGallery.map((item) => (
                     <div
                         key={item.id}
-                        className="gallery-item break-inside-avoid relative group cursor-pointer"
+                        className="gallery-item relative group cursor-pointer"
                         onClick={() => setActiveImage(item)}
                     >
                         <img
@@ -271,7 +285,7 @@ const Portfolio = () => {
             )}
 
             <Footer />
-            
+
         </div>
     );
 };
