@@ -1,17 +1,14 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-const links = [
-  { name: "Portfolio", id: "portfolio" },
-  { name: "Services", id: "services" },
-  { name: "About", id: "about" },
-  { name: "Contact", id: "contact" },
-];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false); // ✅ NEW
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
-  // HANDLE SCROLL BACKGROUND
+  // SCROLL BACKGROUND
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -21,87 +18,156 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // TRACK ACTIVE SECTION
-  useEffect(() => {
-    const sections = document.querySelectorAll("section");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: 0.6,
-      }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
-    <nav
-      className={`fixed top-0 w-full h-20 flex items-center justify-between px-6 md:px-12 z-50 transition-all duration-300
-      ${scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-black/10"
-          : "bg-transparent"
-        }`}
-    >
-      {/* LOGO */}
-      <h1
-        className={`text-lg tracking-wide font-medium transition-colors duration-300
-        ${scrolled ? "text-black" : "text-gold"}`}
-      >
-        <a href="#">Swayam More</a>
-      </h1>
-
-      {/* NAV LINKS */}
-      <div className="hidden md:flex gap-10">
-        {links.map((link) => (
-          <a
-            key={link.id}
-            href={`#${link.id}`}
-            className={`group relative text-sm tracking-wide transition-colors duration-300
-            ${active === link.id
-                ? "text-gold"
-                : scrolled
-                  ? "text-black hover:text-gold"
-                  : "text-white hover:text-gold"
-              }`}
-          >
-            {link.name}
-
-            {/* UNDERLINE */}
-            <span
-              className={`absolute left-0 -bottom-1 h-px bg-gold transition-all duration-300
-              ${active === link.id
-                  ? "w-full"
-                  : "w-0 group-hover:w-full"
-                }`}
-            />
-          </a>
-        ))}
-      </div>
-
-      {/* CTA BUTTON */}
-      <button
-        className={`px-6 py-3 text-sm tracking-wide transition-all duration-300
-        ${scrolled
-            ? "bg-black text-white"
-            : "bg-white text-black"
+    <>
+      <nav
+        className={`fixed top-0 w-full h-20 flex items-center justify-between px-6 md:px-12 z-50 transition-all duration-300
+        ${isHome
+            ? scrolled
+              ? "bg-white/90 backdrop-blur-md border-b border-black/10"
+              : "bg-transparent"
+            : "bg-white/90 backdrop-blur-md border-b border-black/10"
           }`}
       >
-        <a
-          href="#contact"
+        {/* LOGO */}
+        <Link
+          to="/"
+          className={`text-lg tracking-wide transition-colors duration-300 ${isHome ? (scrolled ? "text-black" : "text-gold") : "text-black"}`}
         >
-          BOOK A SHOOT
-        </a>
-      </button>
-    </nav>
+          Swayam <span className="italic">More</span>
+        </Link>
+
+        {/* DESKTOP NAV */}
+        <div className="hidden md:flex gap-10 text-sm tracking-wide">
+          <Link
+            to="/portfolio"
+            className={`relative group ${location.pathname === "/portfolio"
+              ? "text-gold"
+              : isHome
+                ? scrolled
+                  ? "text-black hover:text-gold"
+                  : "text-white hover:text-gold"
+                : "text-black hover:text-gold"
+              }`}
+          >
+            PORTFOLIO
+            <span className="absolute left-0 -bottom-1 h-px bg-gold w-0 group-hover:w-full transition-all duration-300" />
+          </Link>
+
+          <Link
+            to="/about"
+            className={`relative group ${location.pathname === "/about"
+              ? "text-gold"
+              : isHome
+                ? scrolled
+                  ? "text-black hover:text-gold"
+                  : "text-white hover:text-gold"
+                : "text-black hover:text-gold"
+              }`}
+          >
+            ABOUT
+            <span className="absolute left-0 -bottom-1 h-px bg-gold w-0 group-hover:w-full transition-all duration-300" />
+          </Link>
+
+          <Link
+            to="/services"
+            className={`relative group ${location.pathname === "/services"
+              ? "text-gold"
+              : isHome
+                ? scrolled
+                  ? "text-black hover:text-gold"
+                  : "text-white hover:text-gold"
+                : "text-black hover:text-gold"
+              }`}
+          >
+            SERVICES
+            <span className="absolute left-0 -bottom-1 h-px bg-gold w-0 group-hover:w-full transition-all duration-300" />
+          </Link>
+
+          <Link
+            to="/contact"
+            className={`relative group ${location.pathname === "/contact"
+              ? "text-gold"
+              : isHome
+                ? scrolled
+                  ? "text-black hover:text-gold"
+                  : "text-white hover:text-gold"
+                : "text-black hover:text-gold"
+              }`}
+          >
+            CONTACT
+            <span className="absolute left-0 -bottom-1 h-px bg-gold w-0 group-hover:w-full transition-all duration-300" />
+          </Link>
+        </div>
+
+        {/* CTA */}
+        <button
+          className={`hidden md:block px-6 py-3 text-sm tracking-wide transition-all duration-300 hover:bg-(--gold)
+          ${isHome
+              ? scrolled
+                ? "bg-black text-white"
+                : "bg-white text-black"
+              : "bg-black text-white"}`}
+        >
+          <Link to="/contact">BOOK A SHOOT</Link>
+        </button>
+
+        {/* ✅ HAMBURGER BUTTON */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden relative w-6 h-5"
+        >
+          <span
+            className={`absolute left-0 w-full h-0.5 transition-all duration-300
+    ${menuOpen ? "rotate-45 top-2 bg-black" : "top-0 " + (isHome ? (scrolled ? "bg-black" : "bg-white") : "bg-black")}`}
+          />
+
+          <span
+            className={`absolute left-0 w-full h-0.5 top-2 transition-all duration-300
+    ${menuOpen ? "opacity-0" : isHome ? (scrolled ? "bg-black" : "bg-white") : "bg-black"}`}
+          />
+
+          <span
+            className={`absolute left-0 w-full h-0.5 transition-all duration-300
+    ${menuOpen ? "-rotate-45 top-2 bg-black" : "top-4 " + (isHome ? (scrolled ? "bg-black" : "bg-white") : "bg-black")}`}
+          />
+        </button>
+      </nav>
+
+      {/* ✅ MOBILE MENU */}
+      <div
+        className={`fixed top-20 left-0 w-full bg-white z-40 transition-all duration-300 md:hidden
+        ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+      >
+        <div className="flex flex-col items-center gap-6 py-8 text-black">
+
+          <Link to="/portfolio" onClick={() => setMenuOpen(false)}>
+            PORTFOLIO
+          </Link>
+
+          <Link to="/about" onClick={() => setMenuOpen(false)}>
+            ABOUT
+          </Link>
+
+          <Link to="/services" onClick={() => setMenuOpen(false)}>
+            SERVICES
+          </Link>
+
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>
+            CONTACT
+          </Link>
+
+          <button
+
+            className="mt-4 px-6 py-3 bg-black text-white"
+          >
+            <Link to="/contact">BOOK A SHOOT</Link>
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 
