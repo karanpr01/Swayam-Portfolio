@@ -6,7 +6,7 @@ The project combines a clean editorial design with smooth interactions, responsi
 
 ## 🔗 Live Demo
 
-**[View Live Website](https://swayamportfolio-v2.netlify.app/)**
+**[View Live Website](https://swayammore.vercel.app/)**
 ---
 
 ## 📸 Preview
@@ -181,7 +181,7 @@ This project was created as a portfolio project for learning, experimentation, a
 Frontend / Full-Stack Web Developer
 
 * **GitHub:** [@karanpr01](https://github.com/karanpr01)
-* **Live Project:** [Swayam — Photographer Portfolio](https://swayamportfolio-v2.netlify.app/)
+* **Live Project:** [Swayam — Photographer Portfolio](https://swayammore.vercel.app/)
 
 ---
 
